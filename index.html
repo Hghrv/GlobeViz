@@ -2,76 +2,65 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=1024">
-	
+
 <link rel="stylesheet" href="Angels Creative Arts.css">
 <title> TESTING GITHUB PLANET MODEL  </title>
+
+  <style> body { margin: 0; } </style>
+
+  <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
+  <!--<script src="../../dist/globe.gl.js"></script>-->
 </head>
+
 <body>
-  
-
-	
   <div id="globeViz" class="mask zoomTarget" data-targetsize="0.45" data-duration="600"></div>
-
-  <script src="//unpkg.com/globe.gl"></script>
 
   <script>
     // Gen random data
     const N = 20;
-    const arcsData = [...Array(N).keys()]
-  
-    .map(() => ({
-      
+    const arcsData = [...Array(N).keys()].map(() => ({
       startLat: (Math.random() - 0.5) * 180,
       startLng: (Math.random() - 0.5) * 360,
       endLat: (Math.random() - 0.5) * 180,
       endLng: (Math.random() - 0.5) * 360,
-      color: [['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)], ['red', 'gold', 'green', 'green'][Math.round(Math.random() * 3)]]
+      color: [['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)], ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]]
     }));
 
-    Globe()
-      //.globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-      
-      .globeImageUrl('Map.jpeg')
-      
+    new Globe(document.getElementById('globeViz'))
+      .globeImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
       .arcsData(arcsData)
       .arcColor('color')
       .arcDashLength(() => Math.random())
       .arcDashGap(() => Math.random())
-      .arcDashAnimateTime(() => Math.random() * 4000 + 1000)
-      
+      .arcDashAnimateTime(() => Math.random() * 4000 + 1000);
     (document.getElementById('globeViz'))
     document.body.style.zoom = "50%";
      // document.body.style.zoom = "20%";
-    
-    
-
   </script>
-<div id = 'mover'>
-  <img id= rounded' class="animate bounce" src= "Screenshot_globeviz.jpg" height=100 width=100>
-</div>  
- <div>
-	 <a href=""Neural_Network.html>View a suggested neural network simulation to be implemented</a>
- </div>
+
+
   <div class="space1"></div>
-  
+
   <div class="space1"></div>
-  
-
-
-
-	
-		  
-	
 
 <div class="mrgn1">
 
 </div>
-	 <h2 id="shifted">~ TESTING GITHUB PLANET MODEL ~ </h2>
-		<div id="cntr"><p>  Pinch in/out & Scroll the planet.</p></div>
-      <div class="space1"></div>
-      <div class="space1"></div>
-      <div class="space1"></div>
 
 
+
+<h2 id="shifted">~ TESTING GITHUB PLANET MODEL ~ </h2>
+<div id="cntr"><p>  Pinch in/out & Scroll/Spin the simutated globe.</p></div>
+<p>&nbsp;</p>
+<div id="cntr">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p><a href="Neural_Network.html">View a suggested neural network simulation to be implemented</a></p>
+
+</div>
 </body>
 </html>
